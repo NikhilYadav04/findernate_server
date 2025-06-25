@@ -25,4 +25,9 @@ router1.use("/api/phone", phoneRouter);
 router1.use("/api/otp", otpRouter);
 router1.use("/api/user", userRouter);
 
-module.exports = app; 
+module.exports = app;
+
+// For Vercel serverless function compatibility
+module.exports = (req, res) => {
+  app(req, res);
+}; 
